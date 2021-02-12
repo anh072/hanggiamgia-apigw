@@ -1,3 +1,4 @@
+---
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: Lambda WarmUps
@@ -6,9 +7,9 @@ Parameters:
   Env:
     Type: String
     AllowedValues:
-      - test
-      - dev
-      - prod
+    - test
+    - dev
+    - prod
     Default: test
 
   Service:
@@ -44,5 +45,3 @@ Resources:
       Dockerfile: Dockerfile
       DockerContext: ./src
       DockerTag: !Ref ImageTag
-
-

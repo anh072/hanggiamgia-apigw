@@ -6,7 +6,6 @@ APP_REGION = ap-southeast-2
 COMPOSE_RUN_AWS = docker-compose run --rm aws
 COMPOSE_RUN_LINT = docker-compose run --rm lint
 COMPOSE_RUN_PYTHON = docker-compose run --rm python
-COMPOSE_RUN_SAM = docker-compose run --rm sam
 
 TAG ?= test
 IMAGE_REPOSITORY = 838080186947.dkr.ecr.ap-southeast-2.amazonaws.com/jwt-authorizer
@@ -20,15 +19,15 @@ validate: dotenv
 .PHONY: validate
 
 localBuild: dotenv
-	$(COMPOSE_RUN_SAM) make _localBuild
+	make _localBuild
 .PHONY: localBuild
 
 localTest: dotenv
-	$(COMPOSE_RUN_SAM) make _localTest
+	make _localTest
 .PHONY: localTest
 
 deployApp: dotenv
-	$(COMPOSE_RUN_SAM) make _deployApp
+	make _deployApp
 .PHONY: deployApp
 
 # replaces .env with DOTENV if the variable is specified
@@ -50,16 +49,17 @@ _localBuild:
 	cd jwt-authorizer && sam build --parameter-overrides ImageTag=$(TAG)
 
 _localTest:
-	cd jwt-authorizer && sam local invoke --env-vars events/env.json -e events/event.json -l logs.text "Authorizer"
+	cd jwt-authorizer && sam local invoke --env-vars events/env.json -e events/event.json --debug "Authorizer"
 
-_deployApp: _assumeRole _localBuild
-	cd jwt-authorizer && sam deploy -t ./template.yaml --image-repository $(IMAGE_REPOSITORY) \
+_deployApp: _assumeRole
+	cd jwt-authorizer && sam deploy --image-repository $(IMAGE_REPOSITORY) \
 		--stack-name $(SERVICE_NAME)-$(ENV)-jwt-authorizer \
 		--no-fail-on-empty-changeset \
 		--no-confirm-changeset \
 		--parameter-overrides ImageTag=$(TAG) \
 		--capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND \
-		--region $(APP_REGION)
+		--region $(APP_REGION) \
+		--debug
 
 
 _assumeRole:

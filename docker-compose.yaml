@@ -10,15 +10,6 @@ services:
     - .:/opt/app:rw
     - ~/.aws:/root/.aws
 
-  sam:
-    image: anhnguyen072/sam-cli:1.15.0
-    env_file: .env
-    working_dir: /opt/app
-    volumes:
-    - .:/opt/app:rw
-    - ~/.aws:/root/.aws
-    - /var/run/docker.sock:/var/run/docker.sock
-
   lint:
     image: giantswarm/yamllint:latest
     env_file: .env

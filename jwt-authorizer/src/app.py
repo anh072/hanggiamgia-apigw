@@ -12,7 +12,7 @@ def handler(event, context):
   auth0_domain = os.environ.get("AUTH0_DOMAIN")
   claim_namespace = os.environ.get("CLAIM_NAMESPACE")
 
-  auth_header = event["authorizationToken"]
+  auth_header = event["headers"]["authorization"]
   auth_parts = auth_header.split()
   if len(auth_parts) <= 1 or len(auth_parts) > 2:
     print("Token does not have 2 parts")
@@ -42,11 +42,10 @@ def handler(event, context):
     }
   except jwt.ExpiredSignatureError as e:
     print("Token has expired", e)
-    return {"isAuthorized": False}
+    return deny_res()
   except jwt.DecodeError as e:
     print("Token fails validation", e)
-    return {"isAuthorized": False}
+    return deny_res()
   except jwt.InvalidTokenError as e:
     print("Token is invalid", e)
-    return {"isAuthorized": False}
-  
+    return deny_res()
