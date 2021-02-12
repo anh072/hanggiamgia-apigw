@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "type": "REQUEST",
+  "methodArn": "arn:aws:execute-api:us-east-1:123456789012:abcdef123/test/GET/request",
+  "identitySource": "user1,123",
+  "authorizationToken": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtUem1rN0paeTZUR0JESkxBbmFOOCJ9.eyJodHRwczovL2dpYXJlLnZuL3VzZXJuYW1lIjoia2hvbmdhaWNhIiwiaXNzIjoiaHR0cHM6Ly9kZXYtZDVrZWl2eGkuYXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMjA5Yzk0NzMwNThkMDA2OGFmYTkwOSIsImF1ZCI6WyJodHRwczovL2dpYXJlLnZuL2FwaS92MSIsImh0dHBzOi8vZGV2LWQ1a2VpdnhpLmF1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMwMTEyOTIsImV4cCI6MTYxMzA5NzY5MiwiYXpwIjoiYUtXNUJLMW1tNHZpSjFtNFRsYmc4OUZBc1NKOHNMM3kiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.r5J_2cLcEsCQD4yxxE8a91MOdM5M7JPyIvnwMxRFge2itwzYXTx3iCS9-kqfzYkJ2ph8NDz4ialwTrrxvlnkCndSW78OSpCgdjD_mxNb7lur21gXjNSLPEPFVKExsO4LM_OKTK9-WdSl3L0Mz0tMIGVTjXEI3aOjS2pL9Cfwm7d7xrEgB1JYdB8m3Uiic5X84ODUA8lKK4P_jJOI4vB9_SU23Ucxd4bLTGy0bnq7jpdGTU7quhpFZbwbIleLY3X29XBSxUsxanoQdzJ42JYQPqlxKr80BL_dEl6wrVOGiY5Cx32oCu7BxGZ_lCf3_v1AjLqhtkNHd9v26DxVED3EOA",
+  "resource": "/request",
+  "path": "/request",
+  "httpMethod": "GET",
+  "headers": {
+    "X-AMZ-Date": "20170718T062915Z",
+    "Accept": "*/*",
+    "HeaderAuth1": "headerValue1",
+    "CloudFront-Viewer-Country": "US",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "User-Agent": "..."
+  },
+  "queryStringParameters": {
+    "QueryString1": "queryValue1"
+  },
+  "pathParameters": {},
+  "stageVariables": {
+    "StageVar1": "stageValue1"
+  },
+  "requestContext": {
+    "path": "/request",
+    "accountId": "123456789012",
+    "resourceId": "05c7jb",
+    "stage": "test",
+    "requestId": "...",
+    "identity": {
+      "apiKey": "...",
+      "sourceIp": "...",
+      "clientCert": {
+        "clientCertPem": "CERT_CONTENT",
+        "subjectDN": "www.example.com",
+        "issuerDN": "Example issuer",
+        "serialNumber": "a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1",
+        "validity": {
+          "notBefore": "May 28 12:30:02 2019 GMT",
+          "notAfter": "Aug  5 09:36:04 2021 GMT"
+        }
+      }
+    },
+    "resourcePath": "/request",
+    "httpMethod": "GET",
+    "apiId": "abcdef123"
+  }
+}

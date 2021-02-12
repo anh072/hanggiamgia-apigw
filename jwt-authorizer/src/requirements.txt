@@ -1,0 +1,4 @@
+cffi==1.14.4
+cryptography==3.4.4
+pycparser==2.20
+PyJWT==2.0.1

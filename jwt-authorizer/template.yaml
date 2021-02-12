@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Lambda WarmUps
+
+Parameters:
+  Env:
+    Type: String
+    AllowedValues:
+      - test
+      - dev
+      - prod
+    Default: test
+
+  Service:
+    Type: String
+    Default: giare
+
+  Auth0Domain:
+    Type: String
+    Default: https://dev-d5keivxi.au.auth0.com/
+
+  Auth0Audience:
+    Type: String
+    Default: https://giare.vn/api/v1
+
+  ImageTag:
+    Type: String
+
+Resources:
+  Authorizer:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Description: JWT authorizer for Auth0
+      FunctionName: !Sub '${Service}-${Env}-jwt-authorizer'
+      MemorySize: 512
+      Timeout: 240
+      PackageType: Image
+      Environment:
+        Variables:
+          AUTH0_DOMAIN: !Ref Auth0Domain
+          AUTH0_AUDIENCE: !Ref Auth0Audience
+          CLAIM_NAMESPACE: 'https://giare.vn'
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./src
+      DockerTag: !Ref ImageTag
+
+
