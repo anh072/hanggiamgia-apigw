@@ -1,51 +1,50 @@
 {
-  "version": "1.0",
-  "type": "REQUEST",
-  "methodArn": "arn:aws:execute-api:us-east-1:123456789012:abcdef123/test/GET/request",
-  "identitySource": "user1,123",
-  "authorizationToken": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtUem1rN0paeTZUR0JESkxBbmFOOCJ9.eyJodHRwczovL2dpYXJlLnZuL3VzZXJuYW1lIjoia2hvbmdhaWNhIiwiaXNzIjoiaHR0cHM6Ly9kZXYtZDVrZWl2eGkuYXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMjA5Yzk0NzMwNThkMDA2OGFmYTkwOSIsImF1ZCI6WyJodHRwczovL2dpYXJlLnZuL2FwaS92MSIsImh0dHBzOi8vZGV2LWQ1a2VpdnhpLmF1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMwMTEyOTIsImV4cCI6MTYxMzA5NzY5MiwiYXpwIjoiYUtXNUJLMW1tNHZpSjFtNFRsYmc4OUZBc1NKOHNMM3kiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.r5J_2cLcEsCQD4yxxE8a91MOdM5M7JPyIvnwMxRFge2itwzYXTx3iCS9-kqfzYkJ2ph8NDz4ialwTrrxvlnkCndSW78OSpCgdjD_mxNb7lur21gXjNSLPEPFVKExsO4LM_OKTK9-WdSl3L0Mz0tMIGVTjXEI3aOjS2pL9Cfwm7d7xrEgB1JYdB8m3Uiic5X84ODUA8lKK4P_jJOI4vB9_SU23Ucxd4bLTGy0bnq7jpdGTU7quhpFZbwbIleLY3X29XBSxUsxanoQdzJ42JYQPqlxKr80BL_dEl6wrVOGiY5Cx32oCu7BxGZ_lCf3_v1AjLqhtkNHd9v26DxVED3EOA",
-  "resource": "/request",
-  "path": "/request",
-  "httpMethod": "GET",
-  "headers": {
-    "X-AMZ-Date": "20170718T062915Z",
-    "Accept": "*/*",
-    "HeaderAuth1": "headerValue1",
-    "CloudFront-Viewer-Country": "US",
-    "CloudFront-Forwarded-Proto": "https",
-    "CloudFront-Is-Tablet-Viewer": "false",
-    "CloudFront-Is-Mobile-Viewer": "false",
-    "User-Agent": "..."
-  },
-  "queryStringParameters": {
-    "QueryString1": "queryValue1"
-  },
-  "pathParameters": {},
-  "stageVariables": {
-    "StageVar1": "stageValue1"
-  },
-  "requestContext": {
-    "path": "/request",
-    "accountId": "123456789012",
-    "resourceId": "05c7jb",
-    "stage": "test",
-    "requestId": "...",
-    "identity": {
-      "apiKey": "...",
-      "sourceIp": "...",
-      "clientCert": {
-        "clientCertPem": "CERT_CONTENT",
-        "subjectDN": "www.example.com",
-        "issuerDN": "Example issuer",
-        "serialNumber": "a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1",
-        "validity": {
-          "notBefore": "May 28 12:30:02 2019 GMT",
-          "notAfter": "Aug  5 09:36:04 2021 GMT"
-        }
-      }
-    },
-    "resourcePath": "/request",
-    "httpMethod": "GET",
-    "apiId": "abcdef123"
-  }
-}
+   "version":"2.0",
+   "type":"REQUEST",
+   "routeArn":"arn:aws:execute-api:ap-southeast-2:838080186947:6tw1z2cth4/$default/GET/posts/1/votes",
+   "identitySource":[
+     "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtUem1rN0paeTZUR0JESkxBbmFOOCJ9.eyJodHRwczovL2dpYXJlLnZuL3VzZXJuYW1lIjoia2hvbmdhaWNhIiwiaXNzIjoiaHR0cHM6Ly9kZXYtZDVrZWl2eGkuYXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMjA5Yzk0NzMwNThkMDA2OGFmYTkwOSIsImF1ZCI6WyJodHRwczovL2dpYXJlLnZuL2FwaS92MSIsImh0dHBzOi8vZGV2LWQ1a2VpdnhpLmF1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMxNzMxNjEsImV4cCI6MTYxMzI1OTU2MSwiYXpwIjoiYUtXNUJLMW1tNHZpSjFtNFRsYmc4OUZBc1NKOHNMM3kiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.PFCFNxefit9Z0Hy4APVErzRN4yQuhg_DV5WqKmE8Ti0G7lbD5dwJ90KVgwWVtmoGhwLfISnO_AwhYbC_zrZOSwWRb6iQaM4sVi6Md9h5LlGOuckFU1kkobPPsGPQADM89-H_icTr4J_N_kRxr6foG7gS1FPm5AAjWO953Tp-QoKERmPM2S9fBVZSUm4lQh4hxnGtWx17s4d9BCnVBH0z_lC4TIZelJM7G2iCjRxxexRSYOTdOhKhkBpDetf_CH0k2jnpTKJ5wvDMWuifo5wNBtCprg-YnkLwawDSE0YLyaKIkNqNtsZ7ouGBadDBk-FR8yEZmk1knJqfFXcOs9VqcA"
+   ],
+   "routeKey":"GET /posts/{postId}/votes",
+   "rawPath":"/posts/1/votes",
+   "rawQueryString":"",
+   "headers":{
+     "accept":"application/json, text/plain, */*",
+     "accept-encoding":"gzip, deflate, br",
+     "accept-language":"en-GB,en-US;q=0.9,en;q=0.8",
+     "authorization":"Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtUem1rN0paeTZUR0JESkxBbmFOOCJ9.eyJodHRwczovL2dpYXJlLnZuL3VzZXJuYW1lIjoia2hvbmdhaWNhIiwiaXNzIjoiaHR0cHM6Ly9kZXYtZDVrZWl2eGkuYXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMjA5Yzk0NzMwNThkMDA2OGFmYTkwOSIsImF1ZCI6WyJodHRwczovL2dpYXJlLnZuL2FwaS92MSIsImh0dHBzOi8vZGV2LWQ1a2VpdnhpLmF1LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MTMxNzMxNjEsImV4cCI6MTYxMzI1OTU2MSwiYXpwIjoiYUtXNUJLMW1tNHZpSjFtNFRsYmc4OUZBc1NKOHNMM3kiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIn0.PFCFNxefit9Z0Hy4APVErzRN4yQuhg_DV5WqKmE8Ti0G7lbD5dwJ90KVgwWVtmoGhwLfISnO_AwhYbC_zrZOSwWRb6iQaM4sVi6Md9h5LlGOuckFU1kkobPPsGPQADM89-H_icTr4J_N_kRxr6foG7gS1FPm5AAjWO953Tp-QoKERmPM2S9fBVZSUm4lQh4hxnGtWx17s4d9BCnVBH0z_lC4TIZelJM7G2iCjRxxexRSYOTdOhKhkBpDetf_CH0k2jnpTKJ5wvDMWuifo5wNBtCprg-YnkLwawDSE0YLyaKIkNqNtsZ7ouGBadDBk-FR8yEZmk1knJqfFXcOs9VqcA",
+     "content-length":"0",
+     "host":"6tw1z2cth4.execute-api.ap-southeast-2.amazonaws.com",
+     "referer":"http://localhost:3000/posts/1/votes",
+     "sec-fetch-dest":"empty",
+     "sec-fetch-mode":"cors",
+     "sec-fetch-site":"cross-site",
+     "user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36",
+     "username":"khongaica",
+     "x-amzn-trace-id":"Root=1-602711a9-4cb1117f6d3605ad4381e0f8",
+     "x-forwarded-for":"139.218.155.44",
+     "x-forwarded-port":"443",
+     "x-forwarded-proto":"https"
+   },
+   "requestContext":{
+     "accountId":"838080186947",
+     "apiId":"6tw1z2cth4",
+     "domainName":"6tw1z2cth4.execute-api.ap-southeast-2.amazonaws.com",
+     "domainPrefix":"6tw1z2cth4",
+     "http":{
+       "method":"GET",
+       "path":"/posts/1/votes",
+       "protocol":"HTTP/1.1",
+       "sourceIp":"139.218.155.44",
+       "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36"
+     },
+     "requestId":"ap-yjg89ywMEMXA=",
+     "routeKey":"GET /posts/{postId}/votes",
+     "stage":"$default",
+     "time":"12/Feb/2021:23:39:21 +0000",
+     "timeEpoch":1613173161831
+   },
+   "pathParameters":{
+     "postId":"1"
+   }
+ }
