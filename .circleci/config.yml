@@ -15,18 +15,6 @@ jobs:
         name: Validate Cloudformation templates
         command: make validate
 
-  build:
-    machine:
-      image: ubuntu-2004:202010-01
-      docker_layer_caching: true
-    steps:
-    - checkout
-    - run:
-        name: Push Docker image to ECR
-        command: make build
-        environment:
-          TAG: ${CIRCLE_SHA1}
-
   deployApp:
     machine:
       image: ubuntu-2004:202010-01
@@ -34,12 +22,18 @@ jobs:
     steps:
     - checkout
     - run:
-        name: Deploy CloudFormation for App
+        name: Install aws-sam-cli
         command: |
-          echo "export TAG=$CIRCLE_SHA1" >> $BASH_ENV
-          echo "export ENV=test" >> $BASH_ENV
-          source $BASH_ENV
-          make deployApp
+          apt update
+          apt install python3.8
+          apt-install python3-pip
+          pip3 install --no-cache-dir --upgrade aws-sam-cli
+    - run:
+        name: Run build jwt-authorizer
+        command: make localBuild
+    - run:
+        name: Deploy jwt-authorizer
+        command: make deployApp
         no_output_timeout: 20m
 
 workflows:
@@ -47,17 +41,9 @@ workflows:
   build_test_deploy:
     jobs:
     - test
-    - build:
-        requires:
-        - test
-        filters:
-          branches:
-            only: main
-          tags:
-            ignore: /.*/
     - deployApp:
         requires:
-        - build
+        - test
         filters:
           branches:
             only: main
