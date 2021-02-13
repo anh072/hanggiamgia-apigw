@@ -24,10 +24,10 @@ jobs:
     - run:
         name: Install aws-sam-cli
         command: |
-          apt update
-          apt install python3.8
-          apt-install python3-pip
-          pip3 install --no-cache-dir --upgrade aws-sam-cli
+          sudo apt update -y
+          sudo apt install python3.8 -y 
+          sudo apt install python3-pip -y
+          sudo pip3 install --no-cache-dir --upgrade aws-sam-cli
     - run:
         name: Run build jwt-authorizer
         command: make localBuild
