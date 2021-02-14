@@ -31,9 +31,15 @@ jobs:
     - run:
         name: Run build jwt-authorizer
         command: make localBuild
+        environment:
+          TAG: ${CIRCLE_SHA1}
     - run:
         name: Deploy jwt-authorizer
-        command: make deployApp
+        command: |
+          echo "export TAG=$CIRCLE_SHA1" >> $BASH_ENV
+          echo "export ENV=test" >> $BASH_ENV
+          source $BASH_ENV
+          make deployApp
         no_output_timeout: 20m
 
 workflows:
