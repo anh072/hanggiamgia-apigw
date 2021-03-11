@@ -1,14 +1,14 @@
 SERVICE_NAME = giare
 ENV ?= test
 AWS_ROLE ?= arn:aws:iam::838080186947:role/deploy-role
-APP_REGION = ap-southeast-2
+APP_REGION = us-east-1
 
 COMPOSE_RUN_AWS = docker-compose run --rm aws
 COMPOSE_RUN_LINT = docker-compose run --rm lint
 COMPOSE_RUN_PYTHON = docker-compose run --rm python
 
 TAG ?= test
-IMAGE_REPOSITORY = 838080186947.dkr.ecr.ap-southeast-2.amazonaws.com/jwt-authorizer
+IMAGE_REPOSITORY = 838080186947.dkr.ecr.$(APP_REGION).amazonaws.com/jwt-authorizer
 
 lint: dotenv
 	$(COMPOSE_RUN_LINT) yamllint jwt-authorizer/
